@@ -33,7 +33,7 @@ def load_file(filename):
                 
 def load_occupations():
     for item in occupations:
-        for i in range(item[1] * 10):
+        for i in range(int(item[1] * 10)):
             occupations10.append(item[0])
     print occupations10
 #
@@ -42,4 +42,5 @@ def get_random():
 
 load_file("occupations.csv")
 
+load_occupations()
 #print (get_random)
