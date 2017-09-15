@@ -13,17 +13,21 @@ file_read = ""
 
 #function to load the information from the file
 def load_file(filename):
-    file_open = open(filename)
-    file_read = file_open.read()
-    add_entries()
-
-#add the occupations to occupations list
-def add_entries():
-    #strip first and last lines
-
+    #    file_open = open(filename)
+    #   file_read = file_open.read()
+    #  add_entries()
+    with open (filename, 'r') as f:
+        fstr = f.read()
+        list_split = fstr.split('\n')
+        heading = list_split[0]
+        list_split = list_split[1:len(list_split) - 1]
+        list_split = [item.split(',') for item in list_split]
+  print list_split
+    
+#
 def get_random():
     return occupations[random.randint(0,len(occupations) - 1)]
 
 load_file("occupations.csv")
 
-print (get_random)
+#print (get_random)
